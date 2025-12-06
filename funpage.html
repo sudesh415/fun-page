@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fun Web Page Game for Kids</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="A fun and interactive web page with mini game for grade 4 students">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            font-family: Comic Sans MS, Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff4500; /* Orange Red */
+        }
+        h2 {
+            color: #1e90ff; /* Dodger Blue */
+        }
+        p {
+            color: #228b22; /* Forest Green */
+            font-size: 18px;
+        }
+        img {
+            width: 100px;
+            position: absolute;
+            transition: all 0.5s;
+        }
+        button {
+            background-color: #ff69b4; /* Hot Pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493; /* Deep Pink */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Fun Web Page!</h1>
+    <p>Hello! My name is [Nuyang Rai]. Let’s play a mini game!</p>
+
+    <h2>Catch the Moving Cat 🐱</h2>
+    <p>Click on the cat to score points!</p>
+    <button onclick="resetScore()">Reset Score</button>
+    <p>Score: <span id="score">0</span></p>
+    
+    <img src="https://www.example.com/cat.jpg" alt="Cat" id="cat" onclick="catchCat()">
+
+    <script>
+        let score = 0;
+        const cat = document.getElementById('cat');
+
+        // Function to move the cat randomly
+        function moveCat() {
+            const x = Math.floor(Math.random() * (window.innerWidth - 120));
+            const y = Math.floor(Math.random() * (window.innerHeight - 120));
+            cat.style.left = x + 'px';
+            cat.style.top = y + 'px';
+        }
+
+        // Function to increase score when cat is clicked
+        function catchCat() {
+            score++;
+            document.getElementById('score').innerText = score;
+            moveCat();
+        }
+
+        // Function to reset score
+        function resetScore() {
+            score = 0;
+            document.getElementById('score').innerText = score;
+        }
+
+        // Move the cat every 2 seconds
+        setInterval(moveCat, 2000);
+
+        // Initial cat position
+        moveCat();
+    </script>
+</body>
+</html>
